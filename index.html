@@ -26,6 +26,9 @@
   <div id="resultsContainer" class="results"></div>
 
   <script>
+    document.addEventListener("DOMContentLoaded", function(){
+                tail.select("select", { /* Your Options */ });
+    });
     document.getElementById("searchForm").addEventListener("submit", async function(event) {
       event.preventDefault();
   
