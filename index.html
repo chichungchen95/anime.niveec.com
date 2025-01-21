@@ -7,6 +7,14 @@
   <style>
     @import url('https://cdn.jsdelivr.net/gh/chichungchen95/anime.niveec.com/header.css');
   </style>
+  <script>
+    const resultCountSlider = document.getElementById('resultCount');
+    const resultCountValue = document.getElementById('resultCountValue');
+
+    resultCountSlider.addEventListener('input', function() {
+      resultCountValue.textContent = resultCountSlider.value;
+    });
+  </script>
 </head>
 <body>
   <h1>動漫資料搜索</h1>
@@ -22,6 +30,7 @@
   <div id="resultsContainer" class="results"></div>
 
   <script>
+    
     document.getElementById("searchForm").addEventListener("submit", async function(event) {
       event.preventDefault();
   
