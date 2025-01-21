@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動漫資料搜索</title>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/chichungchen95/anime.niveec.com/header.css');
+  </style>
+</head>
+<body>
+  <h1>動漫資料搜索</h1>
+  <div class="search-container">
+    <form id="searchForm">
+      <input type="text" id="searchQuery" placeholder="輸入搜尋內容" required />
+      <label for="resultCount">選擇顯示的結果數量:</label>
+      <select id="resultCount">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select>
+      <button type="submit">搜尋</button>
+    </form>
+  </div>
+  <div id="resultsContainer" class="results"></div>
+
+  <script>
+    document.getElementById("searchForm").addEventListener("submit", async function(event) {
+      event.preventDefault();
+  
+      const searchQuery = document.getElementById("searchQuery").value;
+      const resultCount = document.getElementById("resultCount").value; // 获取选择的结果数量
+      const screenWidth = window.innerWidth; // 获取屏幕宽度
+      const apiUrl = "https://api.chichungchen95.workers.dev"; // 替换为你的 Workers API URL
+  
+      try {
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: `q=${encodeURIComponent(searchQuery)}&screenWidth=${screenWidth}&resultCount=${resultCount}` // 传递选择的结果数量
+        });
+  
+        if (!response.ok) {
+          throw new Error("API request failed");
+        }
+  
+        const html = await response.text();
+        document.getElementById("resultsContainer").innerHTML = html;
+      } catch (error) {
+        document.getElementById("resultsContainer").innerHTML = `<p style="color: red;">錯誤: ${error.message}</p>`;
+      }
+    });
+  </script>
+  
+</body>
+</html>
