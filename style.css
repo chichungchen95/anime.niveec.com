@@ -1,20 +1,4 @@
-@media (max-width: 1200px) {
-  .computer {
-    display:none;
-    visibility: hidden ;
-  }
-  div {
-    flex-direction: column;
-    justify-content: center;
-  }
-}
-@media (min-width: 1200px) {
-  .phone {
-    display:none;
-    visibility: hidden ;
-  }
-}
-@media (max-width: 6000px) {
+
 
 
   #vanta-bg {
@@ -221,4 +205,4 @@
   .results li button:hover {
     background-color: rgba(0, 86, 179, 0.8);
   }
-}
+
