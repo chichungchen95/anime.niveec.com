@@ -7,14 +7,6 @@
   <style>
     @import url('https://cdn.jsdelivr.net/gh/chichungchen95/anime.niveec.com/header.css');
   </style>
-  <script>
-    const resultCountSlider = document.getElementById('resultCount');
-    const resultCountValue = document.getElementById('resultCountValue');
-
-    resultCountSlider.addEventListener('input', function() {
-      resultCountValue.textContent = resultCountSlider.value;
-    });
-  </script>
 </head>
 <body>
   <h1>動漫資料搜索</h1>
@@ -23,7 +15,6 @@
       <input type="text" id="searchQuery" placeholder="輸入搜尋內容" required />
         <label for="resultCount">選擇顯示的結果數量:</label>
         <input type="range" id="resultCount" name="resultCount" min="5" max="20" step="5" value="5">
-        <span id="resultCountValue">5</span>
       <button type="submit">搜尋</button>
     </form>
     <div class="range">
@@ -39,19 +30,6 @@
     </div>
 
   <script>
-      const slideValue = document.querySelector("span");
-      const inputSlider = document.querySelector("input");
-      inputSlider.oninput = (()=>{
-        let value = inputSlider.value;
-        slideValue.textContent = value;
-        slideValue.style.left = (value/2) + "%";
-        slideValue.classList.add("show");
-      });
-      inputSlider.onblur = (()=>{
-        slideValue.classList.remove("show");
-      });
-    document.getElementById("searchForm").addEventListener("submit", async function(event) {
-      event.preventDefault();
   
       const searchQuery = document.getElementById("searchQuery").value;
       const resultCount = document.getElementById("resultCount").value; // 获取选择的结果数量
