@@ -13,22 +13,15 @@
   <div class="search-container">
     <form id="searchForm">
       <input type="text" id="searchQuery" placeholder="輸入搜尋內容" required />
-      <label for="resultCount">選擇顯示的結果數量:</label>
-      <select id="resultCount" class="select">
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-        <option value="20">20</option>
-      </select>
+        <label for="resultCount">選擇顯示的結果數量:</label>
+        <input type="range" id="resultCount" name="resultCount" min="5" max="20" step="5" value="5">
+        <span id="resultCountValue">5</span>
       <button type="submit">搜尋</button>
     </form>
   </div>
   <div id="resultsContainer" class="results"></div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function(){
-                tail.select("select", { /* Your Options */ });
-    });
     document.getElementById("searchForm").addEventListener("submit", async function(event) {
       event.preventDefault();
   
