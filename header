@@ -1,0 +1,93 @@
+@media (max-width: 1200px) {
+  .computer {
+    display:none;
+    visibility: hidden ;
+  }
+  div {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+@media (min-width: 1200px) {
+  .phone {
+    display:none;
+    visibility: hidden ;
+  }
+}
+@media (max-width: 6000px) {
+
+
+  #vanta-bg {
+    position: fixed;
+    width: 125%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    
+  }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #23153c;
+    color: #333;
+  }
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    text-align: center;
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+  }
+  
+    
+  .search-container {
+    margin: 15px auto;
+    width: 90%;
+    max-width: 400px;
+    
+  }
+
+  .search-container input[type="text"] {
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, border-color 0.3s ease; 
+    
+  }
+  
+  .search-container input[type="text"]:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-color: #999;
+    color: rgba(139, 0, 255, 0.9)
+  }
+  
+
+  .search-container button {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(0, 123, 255, 0.8);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-container button:hover {
+    background-color: rgba(0, 86, 179, 0.8); 
+  }
+  
+
+
+}
