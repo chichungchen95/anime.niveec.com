@@ -11,31 +11,33 @@
 <body>
   <h1>動漫資料搜索</h1>
   <div class="search-container">
-    <form id="searchForm">
+    <form id="searchForm" onsubmit="return false;">
       <input type="text" id="searchQuery" placeholder="輸入搜尋內容" required />
-        <label>選擇顯示的結果數量:</label>
-        <div id="resultCountButtons">
-          <button type="button" data-count="5">5</button>
-          <button type="button" data-count="10">10</button>
-          <button type="button" data-count="15">15</button>
-          <button type="button" data-count="20">20</button>
-        </div>
-
-      <button type="submit">搜尋</button>
+      <label>選擇顯示的結果數量:</label>
+      <div id="resultCountButtons">
+        <button type="button" data-count="5">5</button>
+        <button type="button" data-count="10">10</button>
+        <button type="button" data-count="15">15</button>
+        <button type="button" data-count="20">20</button>
+      </div>
     </form>
+    <div id="resultsContainer"></div>
+  </div>
 
   <script>
+    let resultCount = 5;
+
     document.querySelectorAll("#resultCountButtons button").forEach(button => {
       button.addEventListener("click", function() {
-        const resultCount = this.getAttribute("data-count");
-        // 处理 resultCount 逻辑，这里可以是更新 formData，或者执行其他操作
-        console.log("选中的结果数量是：" + resultCount);
+        resultCount = this.getAttribute("data-count");
+        searchAnime();
       });
     });
+
+    async function searchAnime() {
       const searchQuery = document.getElementById("searchQuery").value;
-      const resultCount = document.getElementById("resultCount").value; // 获取选择的结果数量
-      const screenWidth = window.innerWidth; // 获取屏幕宽度
-      const apiUrl = "https://api.chichungchen95.workers.dev"; // 替换为你的 Workers API URL
+      const screenWidth = window.innerWidth;
+      const apiUrl = "https://api.chichungchen95.workers.dev";
   
       try {
         const response = await fetch(apiUrl, {
@@ -43,7 +45,7 @@
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: `q=${encodeURIComponent(searchQuery)}&screenWidth=${screenWidth}&resultCount=${resultCount}` // 传递选择的结果数量
+          body: `q=${encodeURIComponent(searchQuery)}&screenWidth=${screenWidth}&resultCount=${resultCount}`
         });
   
         if (!response.ok) {
@@ -55,8 +57,7 @@
       } catch (error) {
         document.getElementById("resultsContainer").innerHTML = `<p style="color: red;">錯誤: ${error.message}</p>`;
       }
-    });
+    }
   </script>
-  
 </body>
 </html>
