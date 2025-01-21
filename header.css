@@ -13,6 +13,9 @@
     display:none;
     visibility: hidden ;
   }
+  .live2d {
+    visibility: hidden ;
+  }
 }
 @media (max-width: 6000px) {
 
