@@ -13,13 +13,13 @@
   <div class="search-container">
     <form id="searchForm">
       <input type="text" id="searchQuery" placeholder="輸入搜尋內容" vaule="5" required />
-        <label>選擇顯示的結果數量:</label>
-        <div id="resultCountButtons">
-          <button type="button" data-count="5">5</button>
-          <button type="button" data-count="10">10</button>
-          <button type="button" data-count="15">15</button>
-          <button type="button" data-count="20">20</button>
-        </div>
+      <label for="resultCount">選擇顯示的結果數量:</label>
+      <select id="resultCount">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select> 我想把這段改成按鈕
       <button type="submit">搜尋</button>
     </form>
 
