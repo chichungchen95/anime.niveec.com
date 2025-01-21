@@ -13,13 +13,25 @@
   <div class="search-container">
     <form id="searchForm">
       <input type="text" id="searchQuery" placeholder="輸入搜尋內容" required />
-        <label for="resultCount">選擇顯示的結果數量:</label>
-        <input type="range" id="resultCount" name="resultCount" min="5" max="20" step="5" value="5">
+        <label>選擇顯示的結果數量:</label>
+        <div id="resultCountButtons">
+          <button type="button" data-count="5">5</button>
+          <button type="button" data-count="10">10</button>
+          <button type="button" data-count="15">15</button>
+          <button type="button" data-count="20">20</button>
+        </div>
+
       <button type="submit">搜尋</button>
     </form>
 
   <script>
-  
+    document.querySelectorAll("#resultCountButtons button").forEach(button => {
+      button.addEventListener("click", function() {
+        const resultCount = this.getAttribute("data-count");
+        // 处理 resultCount 逻辑，这里可以是更新 formData，或者执行其他操作
+        console.log("选中的结果数量是：" + resultCount);
+      });
+    });
       const searchQuery = document.getElementById("searchQuery").value;
       const resultCount = document.getElementById("resultCount").value; // 获取选择的结果数量
       const screenWidth = window.innerWidth; // 获取屏幕宽度
