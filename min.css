@@ -1,0 +1,16 @@
+@media (max-width: 1200px) {
+  .computer {
+    display:none;
+    visibility: hidden ;
+  }
+  div {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+@media (min-width: 1200px) {
+  .phone {
+    display:none;
+    visibility: hidden ;
+  }
+}
