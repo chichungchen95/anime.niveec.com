@@ -30,9 +30,9 @@
       event.preventDefault();
   
       const searchQuery = document.getElementById("searchQuery").value;
-      const resultCount = document.getElementById("resultCount").value; // 获取选择的结果数量
-      const screenWidth = window.innerWidth; // 获取屏幕宽度
-      const apiUrl = "https://api.chichungchen95.workers.dev"; // 替换为你的 Workers API URL
+      const resultCount = document.getElementById("resultCount").value;
+      const screenWidth = window.innerWidth; 
+      const apiUrl = "https://api.chichungchen95.workers.dev";
   
       try {
         const response = await fetch(apiUrl, {
@@ -40,7 +40,7 @@
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: `q=${encodeURIComponent(searchQuery)}&screenWidth=${screenWidth}&resultCount=${resultCount}` // 传递选择的结果数量
+          body: `q=${encodeURIComponent(searchQuery)}&screenWidth=${screenWidth}&resultCount=${resultCount}` 
         });
   
         if (!response.ok) {
@@ -53,6 +53,15 @@
         document.getElementById("resultsContainer").innerHTML = `<p style="color: red;">錯誤: ${error.message}</p>`;
       }
     });
+      function downloadFile(url)) {
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.download = '';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
   </script>
   
 </body>
