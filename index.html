@@ -30,9 +30,7 @@
           // 獲取當前日期
           let today = new Date();
           let year = today.getFullYear();
-          let month = String(today.getMonth() + 1).padStart(2, '0'); // 補零
-          let day = String(today.getDate()).padStart(2, '0'); // 補零
-          let formattedDate = `${year}-${month}-${day}`;
+          let formattedDate = `${year}`;
          // 設置輸入框的值
           document.getElementById("searchQuery").value = formattedDate;
       };
