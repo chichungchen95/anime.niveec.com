@@ -26,6 +26,18 @@
   <div id="resultsContainer" class="results"></div>
   <div class="live2d"><script src="https://fastly.jsdelivr.net/gh/chichungchen95/live2d-widget@latest/autoload.js"></script></div>
   <script>
+      window.onload = function() {
+          // 獲取當前日期
+          let today = new Date();
+          let year = today.getFullYear();
+          let month = String(today.getMonth() + 1).padStart(2, '0'); // 補零
+          let day = String(today.getDate()).padStart(2, '0'); // 補零
+          let formattedDate = `${year}-${month}-${day}`;
+         // 設置輸入框的值
+          document.getElementById("searchQuery").value = formattedDate;
+      };
+  </script>
+  <script>
     function downloadFile(url) {
       const link = document.createElement('a');
       link.href = url;
