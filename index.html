@@ -74,6 +74,15 @@
         document.getElementById("resultsContainer").innerHTML = `<p style="color: red;">錯誤: ${error.message}</p>`;
       }
     });
+    window.onload = function() {
+    // 設置 searchQuery 為當天日期
+    let today = new Date();
+    let formattedDate = today.toISOString().split('T')[0]; // 格式 YYYY-MM-DD
+    document.getElementById("searchQuery").value = formattedDate;
+
+    // 自動觸發提交事件
+    document.getElementById("searchForm").dispatchEvent(new Event("submit"));
+  };
   </script>
 </body>
 </html>
